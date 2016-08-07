@@ -21,8 +21,8 @@ def main():
     d = dir(lib)
     docs = 0
     for i in d:
-        if('func_doc' in dir(lib.__dict__[i])):
+        if('__doc__' in dir(lib.__dict__[i])):
             docs += 1
-            to_file(libname + "/" + i,lib.__dict__[i].func_doc)
+            to_file(libname + "/" + i,lib.__dict__[i].__doc__)
     print "{0} function {1} obtained from module {2}".format(docs,"document" if docs == 1 else "documents",libname)
 main()
